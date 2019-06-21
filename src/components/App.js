@@ -1,31 +1,40 @@
 import React from 'react';
-import MovieEntry from './MovieEntry.js';
 import MovieList from './MovieList.js';
+import Search from './Search.js';
+import sampleData from '../sampleData';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = [
-            {title: 'Mean Girls'},
-            {title: 'Hackers'},
-            {title: 'The Grey'},
-            {title: 'Sunshine'},
-            {title: 'Ex Machina'},
-          ];
-    }
+  constructor(props) {
+    super(props);
+    this.state = [
+      {title: 'Mean Girls'},
+      {title: 'Hackers'},
+      {title: 'The Grey'},
+      {title: 'Sunshine'},
+      {title: 'Ex Machina'},
+    ];
 
-    render() {
-        return (
-            <div>
-            <div>
-                <h1>Movie List</h1>
-            </div>
-            <div>
-                <MovieList movies={this.state}/>
-            </div>
-            </div>
-        )
-    }
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+  }
+
+  handleSearchInput(query){
+    var search = [{ query: query }];
+    this.setState();
+  }
+
+  render() {
+    return (
+      <div>
+      <div>
+          <h1>Movie List</h1>
+      </div>
+          <Search handleSearchInput={this.handleSearchInput.bind(this)}/>
+      <div>
+          <MovieList movies={this.state}/>
+      </div>
+      </div>
+    )
+  }
 }
 
 export default App;
