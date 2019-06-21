@@ -17,11 +17,10 @@ class App extends React.Component {
     this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
-  handleSearchInput(query){
-    var search = [{ query: query }];
-    this.setState();
+  handleSearchInput(query) {
+    this.setState([{title: 'Braveheart'}, {title: 'Dumbo'}]);
   }
-
+  
   render() {
     return (
       <div>
